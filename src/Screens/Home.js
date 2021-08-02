@@ -85,7 +85,7 @@ const Home = () => {
     setLoad();
     var config = {
       method: "get",
-      url: "https://stonks-un.herokuapp.com/news/all",
+      url: "https://stocks-un.herokuapp.com/news/all",
       headers: {},
     };
 

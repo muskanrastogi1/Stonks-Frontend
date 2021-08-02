@@ -42,7 +42,7 @@ const Login = (props) => {
 
     var config = {
       method: "post",
-      url: "https://stonks-un.herokuapp.com/user/login",
+      url: "https://stocks-un.herokuapp.com/user/login",
       headers: {},
       data: data,
     };

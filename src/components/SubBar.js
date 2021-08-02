@@ -93,7 +93,7 @@ const SubBar = ({ allCompanies, affectedCompanies }) => {
     setLoad();
     var config = {
       method: "get",
-      url: "https://stonks-un.herokuapp.com/stock/user/tracking",
+      url: "https://stocks-un.herokuapp.com/stock/user/tracking",
       headers: {
         "auth-token": sessionStorage.getItem("token"),
       },
@@ -139,7 +139,7 @@ const SubBar = ({ allCompanies, affectedCompanies }) => {
 
     var config = {
       method: "post",
-      url: "https://stonks-un.herokuapp.com/stock/track",
+      url: "https://stocks-un.herokuapp.com/stock/track",
       headers: {
         "auth-token": sessionStorage.getItem("token"),
       },
@@ -179,7 +179,7 @@ const SubBar = ({ allCompanies, affectedCompanies }) => {
 
     var config = {
       method: "post",
-      url: "https://stonks-un.herokuapp.com/stock/track/stop",
+      url: "https://stocks-un.herokuapp.com/stock/track/stop",
       headers: {
         "auth-token": sessionStorage.getItem("token"),
       },

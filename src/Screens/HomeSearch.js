@@ -87,7 +87,7 @@ const HomeSearch = (props) => {
     setLoad();
     var config = {
       method: "get",
-      url: `https://stonks-un.herokuapp.com/news?keyword=${params.entity}`,
+      url: `https://stocks-un.herokuapp.com/news?keyword=${params.entity}`,
       headers: {},
     };
 

@@ -42,7 +42,7 @@ const Signup = () => {
 
     var config = {
       method: "post",
-      url: "https://stonks-un.herokuapp.com/user/signup",
+      url: "https://stocks-un.herokuapp.com/user/signup",
       headers: {},
       data: data,
     };

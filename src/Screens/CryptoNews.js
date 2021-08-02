@@ -92,7 +92,7 @@ const CryptoNews = (props) => {
       const coin = params.coin.toLowerCase();
       var config = {
         method: "get",
-        url: `https://stonks-un.herokuapp.com/crypto/getLatestNewsByCoin?coin=${coin}`,
+        url: `https://stocks-un.herokuapp.com/crypto/getLatestNewsByCoin?coin=${coin}`,
         headers: {},
       };
 
@@ -109,7 +109,7 @@ const CryptoNews = (props) => {
     } else {
       var config = {
         method: "get",
-        url: "https://stonks-un.herokuapp.com/crypto/latestNews",
+        url: "https://stocks-un.herokuapp.com/crypto/latestNews",
         headers: {},
       };
 
