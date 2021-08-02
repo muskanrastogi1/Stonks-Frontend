@@ -14,7 +14,7 @@ const Companies = () => {
   useEffect(() => {
     setLoad();
     var config = {
-      url: "https://stocks-un.herokuapp.com/company/all",
+      url: "https://stonks-un.herokuapp.com/company/all",
       method: "get",
       headers: {},
     };
@@ -32,7 +32,7 @@ const Companies = () => {
 
     var config2 = {
       method: "get",
-      url: "https://stocks-un.herokuapp.com/company/allAffected",
+      url: "https://stonks-un.herokuapp.com/company/allAffected",
       headers: {},
     };
 
@@ -46,9 +46,9 @@ const Companies = () => {
       });
 
     // Axios.all([
-    //   Axios.get("https://stocks-un.herokuapp.com/company/all", config),
+    //   Axios.get("https://stonks-un.herokuapp.com/company/all", config),
     //   Axios.get(
-    //     "https://stocks-un.herokuapp.com/company/allAffected",
+    //     "https://stonks-un.herokuapp.com/company/allAffected",
     //     config2
     //   ),
     // ])

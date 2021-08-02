@@ -26,7 +26,7 @@ const Report = () => {
 
     var config = {
       method: "post",
-      url: "https://stocks-un.herokuapp.com/report",
+      url: "https://stonks-un.herokuapp.com/report",
       headers: {},
       data: formdata,
     };

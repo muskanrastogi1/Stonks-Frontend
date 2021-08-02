@@ -17,7 +17,7 @@ const Sample = () => {
 
   useEffect(() => {
     Axios({
-      url: "https://stocks-un.herokuapp.com/company/all",
+      url: "https://stonks-un.herokuapp.com/company/all",
       method: "get",
       headers: {},
     })
