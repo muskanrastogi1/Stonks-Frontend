@@ -7,10 +7,11 @@
 
 [![DOCS](https://img.shields.io/badge/Documentation-see%20docs-blue?style=flat-square&logo=postman)](https://documenter.getpostman.com/view/12931122/TVYJ5GY6) 
 [![Presentation](https://img.shields.io/badge/Presentation-open-purple?style=flat-square)](https://github.com/muskanrastogi1/Stonks-Frontend/blob/main/Stonks%20Presentation%20%7C%20Team%20UN.pdf)
+[![Demo](https://img.shields.io/badge/Demo-watch-red?style=flat-square&logo=youtube)](https://youtu.be/7aj5QUPuNbQ)
 
 ## Tracks Applied
 - FinTech
-- Technology (question 2, 6, 8)
+- Technology (questions 2, 6, 8)
 
 ## Overview
 Predicting how the stock market will perform is one of the most difficult things to do. There are so many factors involved in the prediction- physical factors vs. physiologic factors, rational and irrational behavior, etc. All the aspects combine to make share prices volatile and very difficult to predict with a high degree of accuracy.
