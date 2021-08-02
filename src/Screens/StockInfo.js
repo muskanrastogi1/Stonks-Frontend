@@ -34,7 +34,7 @@ const StockInfo = (props) => {
     setLoad();
     var config = {
       method: "get",
-      url: `https://stonks-bandito.herokuapp.com/stock/info/?query=${params.company}`,
+      url: `https://stonks-un.herokuapp.com/stock/info/?query=${params.company}`,
       headers: {},
     };
 

@@ -71,14 +71,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const HomeSearch = (props) => {
-  const {
-    match: { params },
-  } = props;
+const Home = () => {
   const classes = useStyles();
 
   const [loading, setLoad, unsetLoad] = useLoading(true);
   const [news, setNews] = useState([]);
+
   const history = useHistory();
 
   const [entity, setEntity] = useState("");
@@ -87,24 +85,26 @@ const HomeSearch = (props) => {
     setLoad();
     var config = {
       method: "get",
-      url: `https://stonks-bandito.herokuapp.com/news?keyword=${params.entity}`,
+      url: "https://stonks-un.herokuapp.com/news/all",
       headers: {},
     };
 
     Axios(config)
-      .then(function (res) {
+      .then((res) => {
         console.log(res.data);
-        setNews(res.data.articles);
+
+        setNews(res.data.news.data);
         unsetLoad();
       })
-      .catch(function (error) {
+      .catch((error) => {
+        unsetLoad();
         console.log(error);
       });
   }, []);
 
   if (loading) return <Loader />;
   return (
-    <div style={{ marginTop: "50px", textAlign: "center" }}>
+    <div style={{ marginTop: "50px" }}>
       <Paper component="form" className={classes.root2}>
         <InputBase
           className={classes.input}
@@ -114,7 +114,7 @@ const HomeSearch = (props) => {
           onChange={(e) => setEntity(e.target.value)}
         />
         <IconButton
-          type="submit"
+          // type="submit"
           className={classes.iconButton}
           aria-label="search"
           onClick={() => history.push(`/stonks/search/${entity}`)}
@@ -122,15 +122,11 @@ const HomeSearch = (props) => {
           <SearchIcon style={{ width: "30px", height: "30px" }} />
         </IconButton>
       </Paper>
-      {news.length === 0 ? (
-        <h2>No news Available</h2>
-      ) : (
-        news.map((info, index) => (
-          <NewsCard key={index} newsData={info} type={"particular"} />
-        ))
-      )}
+      {news.map((info, index) => (
+        <NewsCard key={index} newsData={info} type={"general"} />
+      ))}
     </div>
   );
 };
 
-export default HomeSearch;
+export default Home;

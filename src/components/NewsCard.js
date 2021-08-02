@@ -34,7 +34,7 @@ const NewsCard = ({ newsData, type }) => {
 
     var config = {
       method: "post",
-      url: "https://stonks-bandito.herokuapp.com/news/analyze",
+      url: "https://stonks-un.herokuapp.com/news/analyze",
       headers: {},
       data: data,
     };

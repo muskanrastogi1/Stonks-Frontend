@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import NewsCard from "../components/NewsCard";
+import CryptoNewsCard from "../components/CryptoNewsCard";
 import useLoading from "../components/hooks/loading-hook";
 import Loader from "../components/loader";
 import Axios from "axios";
@@ -71,7 +71,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = () => {
+const CryptoNews = (props) => {
+  const {
+    match: { params },
+  } = props;
+
   const classes = useStyles();
 
   const [loading, setLoad, unsetLoad] = useLoading(true);
@@ -83,23 +87,43 @@ const Home = () => {
 
   useEffect(() => {
     setLoad();
-    var config = {
-      method: "get",
-      url: "https://stonks-bandito.herokuapp.com/news/all",
-      headers: {},
-    };
 
-    Axios(config)
-      .then((res) => {
-        console.log(res.data);
+    if (params && params.coin) {
+      const coin = params.coin.toLowerCase();
+      var config = {
+        method: "get",
+        url: `https://stonks-un.herokuapp.com/crypto/getLatestNewsByCoin?coin=${coin}`,
+        headers: {},
+      };
 
-        setNews(res.data.news.data);
-        unsetLoad();
-      })
-      .catch((error) => {
-        unsetLoad();
-        console.log(error);
-      });
+      Axios(config)
+        .then(function (res) {
+          unsetLoad();
+          console.log(res.data);
+          setNews(res.data);
+        })
+        .catch(function (error) {
+          unsetLoad();
+          console.log(error);
+        });
+    } else {
+      var config = {
+        method: "get",
+        url: "https://stonks-un.herokuapp.com/crypto/latestNews",
+        headers: {},
+      };
+
+      Axios(config)
+        .then(function (res) {
+          unsetLoad();
+          console.log(res.data);
+          setNews(res.data);
+        })
+        .catch(function (error) {
+          unsetLoad();
+          console.log(error);
+        });
+    }
   }, []);
 
   if (loading) return <Loader />;
@@ -108,25 +132,32 @@ const Home = () => {
       <Paper component="form" className={classes.root2}>
         <InputBase
           className={classes.input}
-          placeholder="Search "
+          placeholder="Search by coin "
           inputProps={{ "aria-label": "search" }}
           value={entity}
           onChange={(e) => setEntity(e.target.value)}
         />
-        <IconButton
-          // type="submit"
-          className={classes.iconButton}
-          aria-label="search"
-          onClick={() => history.push(`/stonks/search/${entity}`)}
-        >
-          <SearchIcon style={{ width: "30px", height: "30px" }} />
-        </IconButton>
+        <a href={`/crypto/search/${entity}`} style={{ textDecoration: "none" }}>
+          <IconButton
+            // type="submit"
+            className={classes.iconButton}
+            aria-label="search"
+            // onClick={() => history.push(`/crypto/search/${entity}`)}
+          >
+            <SearchIcon style={{ width: "30px", height: "30px" }} />
+          </IconButton>
+        </a>
       </Paper>
-      {news.map((info, index) => (
-        <NewsCard key={index} newsData={info} type={"general"} />
-      ))}
+
+      {news.length === 0 ? (
+        <h2>No news Available</h2>
+      ) : (
+        news.map((info, index) => (
+          <CryptoNewsCard key={index} newsData={info} />
+        ))
+      )}
     </div>
   );
 };
 
-export default Home;
+export default CryptoNews;
