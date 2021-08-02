@@ -139,7 +139,7 @@ const Coins = () => {
         {filterPost.map((coin) => {
           console.log(coin.marketCap);
           return (
-            <Grid item sm={3}>
+            <Grid item sm={3} key={coin}>
               <Paper className={classes.myPaper} elevation={2}>
                 <Grid
                   container
